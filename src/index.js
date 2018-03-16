@@ -1,17 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import { render } from 'react-dom';
 import CommentApp from './CommentApp';
-import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<CommentApp comment={[
-    {
-        userName: 'hoozi',
-        content: 'haha'
-    },
-    {
-        userName: '李三',
-        content: 'hehe'
-    }
-]}/>, document.getElementById('root'));
-registerServiceWorker();
+render(
+    <CommentApp/>, 
+    document.getElementById('root')
+);
+

@@ -7,18 +7,31 @@ export default class CommentApp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comments: this.props.comments || []
+            comments: []
         }
     }
-    handleSubmit({ userName, content }) {
+    componentWillMount() {
+        this._loadComments();
+    }
+    _loadComments() {
+        this.setState({
+            comments: JSON.parse(localStorage.getItem('comments')) || []
+        })
+    }
+    _saveComments({ userName, content, createTime } = {}) {
         const { comments } = this.state;
         comments.push({
             userName,
-            content
+            content,
+            createTime
         });
         this.setState({
             comments
-        })
+        });
+        localStorage.setItem('comments', JSON.stringify(comments));
+    }
+    handleSubmit(comment) {
+        this._saveComments(comment)
     }
     render() {
         const { comments } = this.state;

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Comment from './Comment';
 export default class CommentList extends Component {
+    static propTypes = {
+        comments: PropTypes.array   
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -13,6 +17,7 @@ export default class CommentList extends Component {
         this.setState({
             comments
         });
+        localStorage.setItem('comments', JSON.stringify(this.state.comments));
     }
     render() {
         const { comments } = this.state;
