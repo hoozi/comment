@@ -20,12 +20,13 @@ export default class CommentInput extends Component {
         })
     }
     publish() {
-        const { onSubmit } = this.props;
         const { userName, content } = this.state;
         if(!userName || !content) {
             return alert('用户名或者内容不能为空！');
         }
-        onSubmit(this.state);
+        if( this.props.onSubmit ) {
+            this.props.onSubmit(this.state);
+        }
         this.setState({
             userName: '',
             content: ''

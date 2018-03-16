@@ -125,3 +125,11 @@ body {
   margin: 0
 }
 
+.comment button {
+  height: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  border:0;
+  background: transparent;
+  color: red
+}

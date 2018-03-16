@@ -7,10 +7,18 @@ export default class CommentApp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comments: []
+            comments: this.props.comments || []
         }
     }
-    handleSubmit({userName, content}) {
+    /* componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+        if(nextProps.comments) {
+            this.setState({
+                comments: nextProps.comments
+            })
+        }
+    } */
+    handleSubmit({ userName, content }) {
         const { comments } = this.state;
         comments.push({
             userName,
@@ -19,7 +27,6 @@ export default class CommentApp extends Component {
         this.setState({
             comments
         })
-        console.log(this.state)
     }
     render() {
         const { comments } = this.state;

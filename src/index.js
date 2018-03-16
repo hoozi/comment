@@ -4,5 +4,14 @@ import './index.css';
 import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<CommentApp />, document.getElementById('root'));
+ReactDOM.render(<CommentApp comments={[
+    {
+        userName: 'hoozi',
+        content: 'haha'
+    },
+    {
+        userName: '李三',
+        content: 'hehe'
+    }
+]}/>, document.getElementById('root'));
 registerServiceWorker();
