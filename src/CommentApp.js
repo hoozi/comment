@@ -10,14 +10,6 @@ export default class CommentApp extends Component {
             comments: this.props.comments || []
         }
     }
-    /* componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
-        if(nextProps.comments) {
-            this.setState({
-                comments: nextProps.comments
-            })
-        }
-    } */
     handleSubmit({ userName, content }) {
         const { comments } = this.state;
         comments.push({
@@ -30,6 +22,7 @@ export default class CommentApp extends Component {
     }
     render() {
         const { comments } = this.state;
+
         return (
             <div className='wrapper'>
                 <CommentInput onSubmit={ this.handleSubmit.bind(this) }/>

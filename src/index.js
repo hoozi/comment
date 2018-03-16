@@ -4,7 +4,7 @@ import './index.css';
 import CommentApp from './CommentApp';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<CommentApp comments={[
+ReactDOM.render(<CommentApp comment={[
     {
         userName: 'hoozi',
         content: 'haha'
